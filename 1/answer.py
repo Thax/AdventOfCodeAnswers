@@ -2,7 +2,6 @@
 
 import sys
 import argparse
-import subprocess
 
 parser = argparse.ArgumentParser()
 
@@ -14,12 +13,12 @@ input_text = open("./" + options.input, 'r')
 
 contents = input_text.read().split('\n')
 
-
+target = 2020
 
 for line in contents:
     for subline in contents:
         if line == '' or subline == '' or line == subline:
             continue
-        if (int(line) + int (subline)) == 2020:
-            print int(line) * int (subline)
-            exit
+        if (int(line) + int (subline)) == target:
+            print line + " * " + subline + " = " + str(int(line) * int (subline))
+            exit()
